@@ -1,0 +1,16 @@
+{
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "comma-dangle": ["error", "always-multiline"],
+        "indent": ["error", 4]
+    }
+}
