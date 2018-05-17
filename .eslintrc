@@ -1,7 +1,5 @@
 {
-    "extends": [
-        "eslint:recommended"
-    ],
+    "extends": ["eslint:recommended", "google"],
     "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module",
@@ -10,7 +8,8 @@
         }
     },
     "rules": {
-        "comma-dangle": ["error", "always-multiline"],
-        "indent": ["error", 4]
+        "new-cap": ["error", { "capIsNew": false }],
+        "indent": ["error", 4],
+        "require-jsdoc": 0
     }
 }
