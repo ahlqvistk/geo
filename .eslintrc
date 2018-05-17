@@ -14,6 +14,7 @@
     "rules": {
         "new-cap": ["error", { "capIsNew": false }],
         "indent": ["error", 4],
+        "no-unused-vars": ["error", { "varsIgnorePattern": "^m$" }],
         "require-jsdoc": 0
     }
 }
