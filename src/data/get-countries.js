@@ -4,7 +4,7 @@ import {
     fetchingCountries,
     countriesFetched,
     fetchingCountriesFailed,
-} from './actions';
+} from '../actions';
 
 export default function() {
     store.dispatch(fetchingCountries());
