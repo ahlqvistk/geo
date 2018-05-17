@@ -1,3 +1,10 @@
-import m from "mithril";
+/* global document */
+import m from 'mithril';
+import getCountries from './data/get-countries';
+import Start from './components/start';
 
-m.render(document.body, "hello world");
+getCountries();
+
+m.route(document.body, '/', {
+    '/': Start,
+});
