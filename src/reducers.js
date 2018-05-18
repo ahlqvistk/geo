@@ -1,6 +1,5 @@
 import {combineReducers} from 'redux';
 import {Countries} from './types';
-import randomFromArray from './helpers/random-from-array';
 
 export default combineReducers({
     view,
@@ -35,7 +34,7 @@ function countries(state = Countries.Unfetched, action) {
 function questions(state = [], action) {
     switch (action.type) {
     case 'QUESTIONS_SELECTED':
-        return randomFromArray(action.payload, 5);
+        return action.payload;
     default:
         return state;
     }
