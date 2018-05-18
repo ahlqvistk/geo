@@ -3,6 +3,7 @@ import {Countries} from '../types';
 import randomFromArray from '../helpers/random-from-array';
 import store from '../store';
 import {
+    viewChanged,
     questionsSelected,
 } from '../actions';
 
@@ -25,7 +26,9 @@ export default {
 
             return (
                 <nav>
-                    <button>Maps</button>
+                    <button
+                        onclick={() => store.dispatch(viewChanged('Maps'))}
+                    >Maps</button>
                     <button>Flags</button>
                     <button>Capitals</button>
                     <button>Full game</button>

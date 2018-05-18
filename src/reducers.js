@@ -2,10 +2,20 @@ import {combineReducers} from 'redux';
 import {Countries} from './types';
 
 export default combineReducers({
+    view,
     countries,
     questions,
     alternatives,
 });
+
+function view(state = 'Start', action) {
+    switch (action.type) {
+    case 'VIEW_CHANGED':
+        return action.payload;
+    default:
+        return state;
+    }
+}
 
 function countries(state = Countries.Unfetched, action) {
     switch (action.type) {

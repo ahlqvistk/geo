@@ -1,3 +1,14 @@
+/*
+ *  view
+ */
+export const viewChanged = (view) => ({
+    type: 'VIEW_CHANGED',
+    payload: view,
+});
+
+/*
+ * countries
+ */
 export const fetchingCountries = () => ({
     type: 'FETCHING_COUNTRIES',
 });
@@ -12,11 +23,17 @@ export const fetchingCountriesFailed = (err) => ({
     payload: err,
 });
 
+/*
+ * questions
+ */
 export const questionsSelected = (questions) => ({
     type: 'QUESTIONS_SELECTED',
     payload: questions,
 });
 
+/*
+ * alternatives
+ */
 export const alternativesSelected = (alternatives) => ({
     type: 'ALTERNATIVES_SELECTED',
     payload: alternatives,
