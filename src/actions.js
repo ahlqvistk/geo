@@ -26,9 +26,9 @@ export const fetchingCountriesFailed = (err) => ({
 /*
  * questions
  */
-export const questionsSelected = (questions) => ({
+export const questionsSelected = (countries) => ({
     type: 'QUESTIONS_SELECTED',
-    payload: questions,
+    payload: countries,
 });
 
 /*

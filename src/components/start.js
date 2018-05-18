@@ -1,10 +1,8 @@
 import m from 'mithril';
 import {Countries} from '../types';
-import randomFromArray from '../helpers/random-from-array';
 import store from '../store';
 import {
     viewChanged,
-    questionsSelected,
 } from '../actions';
 
 export default {
@@ -16,14 +14,6 @@ export default {
             return <h1>Fetching</h1>;
         },
         Fetched: () => {
-            const state = store.getState();
-
-            if (!state.questions.length) {
-                const questions = randomFromArray(state.countries[0], 5);
-
-                store.dispatch(questionsSelected(questions));
-            }
-
             return (
                 <nav>
                     <button
