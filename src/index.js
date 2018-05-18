@@ -2,25 +2,20 @@
 import m from 'mithril';
 import getCountries from './data/get-countries';
 import store from './store';
+
 import Start from './components/start';
 import Maps from './components/maps';
+import Capitals from './components/capitals';
 
 getCountries();
 
-function mountView(view) {
-    switch (view) {
-    case 'Start':
-        m.mount(document.body, Start);
-        break;
-    case 'Maps':
-        m.mount(document.body, Maps);
-        break;
-    default:
-        break;
-    }
-}
+const views = {
+    Start,
+    Maps,
+    Capitals,
+};
 
 store.subscribe(() => {
-    mountView(store.getState().view);
+    m.mount(document.body, views[store.getState().view]);
     m.redraw();
 });

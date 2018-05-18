@@ -30,7 +30,9 @@ export default {
                         onclick={() => store.dispatch(viewChanged('Maps'))}
                     >Maps</button>
                     <button>Flags</button>
-                    <button>Capitals</button>
+                    <button
+                        onclick={() => store.dispatch(viewChanged('Capitals'))}
+                    >Capitals</button>
                     <button>Full game</button>
                 </nav>
             );
