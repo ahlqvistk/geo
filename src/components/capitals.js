@@ -2,6 +2,7 @@ import m from 'mithril';
 import randomFromArray from '../helpers/random-from-array';
 import shuffleArray from '../helpers/shuffle-array';
 import {
+    alternativesSelected,
     questionsSelected,
 } from '../actions';
 
@@ -13,12 +14,7 @@ export default {
             const questions = randomFromArray(state.countries[0], 5);
 
             dispatch(questionsSelected(questions));
-        }
-    },
-    view({attrs}) {
-        const state = attrs.state;
-
-        if (state.questions.length) {
+        } else if (state.questions.length && !state.alternatives.length) {
             const currentQuestion = state.questions[state.currentQuestion];
             const filter = (country) => (
                 country.name !== currentQuestion.name &&
@@ -29,10 +25,19 @@ export default {
                     .concat(currentQuestion)
             );
 
+            dispatch(alternativesSelected(alternatives));
+        }
+    },
+    view({attrs}) {
+        const state = attrs.state;
+
+        if (state.questions.length && state.alternatives.length) {
+            const currentQuestion = state.questions[state.currentQuestion];
+
             return <div>
                 <div>The capital of {currentQuestion.name}</div>
                 <div>
-                    {alternatives.map((country) => (
+                    {state.alternatives.map((country) => (
                         <button>{country.capital}</button>
                     ))}
                 </div>
