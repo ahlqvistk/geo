@@ -1,12 +1,39 @@
 import m from 'mithril';
+import {Countries} from '../types';
+import randomFromArray from '../helpers/random-from-array';
+import store from '../store';
+import {
+    countryQuestionsSelected,
+} from '../actions';
 
 export default {
-    view: () => (
-        <nav>
-            <a href='/maps' oncreate={m.route.link}>Maps</a>
-            <a href='/flags' oncreate={m.route.link}>Flags</a>
-            <a href='/capitals' oncreate={m.route.link}>Capitals</a>
-            <a href='/full' oncreate={m.route.link}>Full game</a>
-        </nav>
-    ),
+    view: () => Countries.case({
+        Unfetched: () => {
+            return <h1>Unfetched</h1>;
+        },
+        Fetching: () => {
+            return <h1>Fetching</h1>;
+        },
+        Fetched: () => {
+            const state = store.getState();
+
+            if (!state.countryQuestions.length) {
+                const questions = randomFromArray(state.countries[0], 5);
+
+                store.dispatch(countryQuestionsSelected(questions));
+            }
+
+            return (
+                <nav>
+                    <button>Maps</button>
+                    <button>Flags</button>
+                    <button>Capitals</button>
+                    <button>Full game</button>
+                </nav>
+            );
+        },
+        Failed: () => {
+            return <h1>Failed</h1>;
+        },
+    }, store.getState().countries),
 };
