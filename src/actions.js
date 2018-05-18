@@ -38,3 +38,15 @@ export const alternativesSelected = (alternatives) => ({
     type: 'ALTERNATIVES_SELECTED',
     payload: alternatives,
 });
+
+/*
+ * currentQuestion
+ */
+export const nextQuestion = (currentQuestion) => ({
+    type: 'NEXT_QUESTION',
+    payload: currentQuestion,
+});
+
+export const currentQuestionReset = () => ({
+    type: 'CURRENT_QUESTION_RESET',
+});

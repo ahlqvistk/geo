@@ -7,6 +7,7 @@ export default combineReducers({
     countries,
     questions,
     alternatives,
+    currentQuestion,
 });
 
 function view(state = 'Start', action) {
@@ -44,6 +45,17 @@ function alternatives(state = [], action) {
     switch (action.type) {
     case 'ALTERNATIVES_SELECTED':
         return action.payload;
+    default:
+        return state;
+    }
+}
+
+function currentQuestion(state = 0, action) {
+    switch (action.type) {
+    case 'NEXT_QUESTION':
+        return action.payload + 1;
+    case 'CURRENT_QUESTION_RESET':
+        return 0;
     default:
         return state;
     }

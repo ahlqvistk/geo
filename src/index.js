@@ -16,6 +16,11 @@ const views = {
 };
 
 store.subscribe(() => {
-    m.mount(document.body, views[store.getState().view]);
+    m.mount(document.body, {view: () => (
+        m(views[store.getState().view], {
+            state: store.getState(),
+            dispatch: store.dispatch,
+        })
+    )});
     m.redraw();
 });
