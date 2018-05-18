@@ -3,8 +3,8 @@ import {Countries} from './types';
 
 export default combineReducers({
     countries,
-    countryAlternatives,
-    countryQuestions,
+    questions,
+    alternatives,
 });
 
 function countries(state = Countries.Unfetched, action) {
@@ -20,18 +20,18 @@ function countries(state = Countries.Unfetched, action) {
     }
 }
 
-function countryAlternatives(state = [], action) {
+function questions(state = [], action) {
     switch (action.type) {
-    case 'COUNTRY_ALTERNATIVES_SELECTED':
+    case 'QUESTIONS_SELECTED':
         return action.payload;
     default:
         return state;
     }
 }
 
-function countryQuestions(state = [], action) {
+function alternatives(state = [], action) {
     switch (action.type) {
-    case 'COUNTRY_QUESTIONS_SELECTED':
+    case 'ALTERNATIVES_SELECTED':
         return action.payload;
     default:
         return state;

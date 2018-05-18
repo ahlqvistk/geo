@@ -3,7 +3,7 @@ import {Countries} from '../types';
 import randomFromArray from '../helpers/random-from-array';
 import store from '../store';
 import {
-    countryQuestionsSelected,
+    questionsSelected,
 } from '../actions';
 
 export default {
@@ -17,10 +17,10 @@ export default {
         Fetched: () => {
             const state = store.getState();
 
-            if (!state.countryQuestions.length) {
+            if (!state.questions.length) {
                 const questions = randomFromArray(state.countries[0], 5);
 
-                store.dispatch(countryQuestionsSelected(questions));
+                store.dispatch(questionsSelected(questions));
             }
 
             return (

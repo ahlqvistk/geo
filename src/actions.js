@@ -12,12 +12,12 @@ export const fetchingCountriesFailed = (err) => ({
     payload: err,
 });
 
-export const countryQuestionsSelected = (questions) => ({
-    type: 'COUNTRY_QUESTIONS_SELECTED',
+export const questionsSelected = (questions) => ({
+    type: 'QUESTIONS_SELECTED',
     payload: questions,
 });
 
-export const countryAlternativesSelected = (alternatives) => ({
-    type: 'COUNTRY_ALTERNATIVES_SELECTED',
+export const alternativesSelected = (alternatives) => ({
+    type: 'ALTERNATIVES_SELECTED',
     payload: alternatives,
 });
