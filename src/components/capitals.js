@@ -3,6 +3,8 @@ import randomFromArray from '../helpers/random-from-array';
 import shuffleArray from '../helpers/shuffle-array';
 import {
     alternativesSelected,
+    alternativesCleared,
+    currentQuestionIndexIncremented,
     questionsSelected,
 } from '../actions';
 
@@ -15,7 +17,7 @@ export default {
 
             dispatch(questionsSelected(questions));
         } else if (state.questions.length && !state.alternatives.length) {
-            const currentQuestion = state.questions[state.currentQuestion];
+            const currentQuestion = state.questions[state.currentQuestionIndex];
             const filter = (country) => (
                 country.name !== currentQuestion.name &&
                 country.subregion === currentQuestion.subregion
@@ -29,16 +31,25 @@ export default {
         }
     },
     view({attrs}) {
-        const state = attrs.state;
+        const {state, dispatch} = attrs;
 
         if (state.questions.length && state.alternatives.length) {
-            const currentQuestion = state.questions[state.currentQuestion];
+            const currentQuestion = state.questions[state.currentQuestionIndex];
 
             return <div>
                 <div>The capital of {currentQuestion.name}</div>
                 <div>
                     {state.alternatives.map((country) => (
-                        <button>{country.capital}</button>
+                        <button
+                            onclick={() => {
+                                dispatch(alternativesCleared());
+                                dispatch(
+                                    currentQuestionIndexIncremented(
+                                        state.currentQuestionIndex
+                                    )
+                                );
+                            }}
+                        >{country.capital}</button>
                     ))}
                 </div>
             </div>;

@@ -39,14 +39,18 @@ export const alternativesSelected = (alternatives) => ({
     payload: alternatives,
 });
 
+export const alternativesCleared = () => ({
+    type: 'ALTERNATIVES_CLEARED',
+});
+
 /*
  * currentQuestion
  */
-export const nextQuestion = (currentQuestion) => ({
-    type: 'NEXT_QUESTION',
-    payload: currentQuestion,
+export const currentQuestionIndexIncremented = (currentQuestionIndex) => ({
+    type: 'CURRENT_QUESTION_INDEX_INCREMENTED',
+    payload: currentQuestionIndex,
 });
 
-export const currentQuestionReset = () => ({
-    type: 'CURRENT_QUESTION_RESET',
+export const currentQuestionIndexReset = () => ({
+    type: 'CURRENT_QUESTION_INDEX_RESET',
 });
