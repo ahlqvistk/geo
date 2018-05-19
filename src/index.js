@@ -1,11 +1,10 @@
 /* global document */
 import m from 'mithril';
-import getCountries from './data/get-countries';
-import store from './store';
-
-import Start from './components/start';
-import Maps from './components/maps';
+import {getCountries} from './commands';
 import Capitals from './components/capitals';
+import Maps from './components/maps';
+import Start from './components/start';
+import store from './store';
 
 getCountries();
 

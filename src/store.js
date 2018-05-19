@@ -1,6 +1,6 @@
 /* global window */
 import {createStore} from 'redux';
-import rootReducer from './reducers';
+import rootReducer from './events';
 
 export default createStore(
     rootReducer,
