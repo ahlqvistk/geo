@@ -1,12 +1,10 @@
 import m from 'mithril';
+import store from '../store';
 import {Countries} from '../types';
-import {
-    viewChanged,
-} from '../actions';
 
 export default {
-    view({attrs}) {
-        const {state, dispatch} = attrs;
+    view() {
+        const state = store.getState();
 
         return Countries.case({
             Unfetched: () => {
@@ -18,13 +16,9 @@ export default {
             Fetched: () => {
                 return (
                     <nav>
-                        <button
-                            onclick={() => dispatch(viewChanged('Maps'))}
-                        >Maps</button>
+                        <button>Maps</button>
                         <button>Flags</button>
-                        <button
-                            onclick={() => dispatch(viewChanged('Capitals'))}
-                        >Capitals</button>
+                        <button>Capitals</button>
                         <button>Full game</button>
                     </nav>
                 );
