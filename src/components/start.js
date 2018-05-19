@@ -1,4 +1,5 @@
 import m from 'mithril';
+import {changeView} from '../commands';
 import store from '../store';
 import {Countries} from '../types';
 
@@ -16,10 +17,18 @@ export default {
             Fetched: () => {
                 return (
                     <nav>
-                        <button>Maps</button>
-                        <button>Flags</button>
-                        <button>Capitals</button>
-                        <button>Full game</button>
+                        <button
+                            onclick={() => changeView('Maps')}
+                        >Maps</button>
+                        <button
+                            onclick={() => changeView('Flags')}
+                        >Flags</button>
+                        <button
+                            onclick={() => changeView('Capitals')}
+                        >Capitals</button>
+                        <button
+                            onclick={() => changeView('FullGame')}
+                        >Full game</button>
                     </nav>
                 );
             },

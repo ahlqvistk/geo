@@ -9,7 +9,7 @@ export function getCountries() {
         payload: Countries.Fetching,
     });
 
-    m.request({
+    return m.request({
         method: 'GET',
         url: 'https://restcountries.eu/rest/v2/all',
     }).then((res) => {
