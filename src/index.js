@@ -7,6 +7,7 @@ import {
 } from './commands';
 import Capitals from './components/capitals';
 import Maps from './components/maps';
+import Result from './components/result';
 import Start from './components/start';
 import store from './store';
 
@@ -19,6 +20,7 @@ const views = {
     Start,
     Maps,
     Capitals,
+    Result,
 };
 
 store.subscribe(() => {

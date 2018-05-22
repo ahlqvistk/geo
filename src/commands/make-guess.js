@@ -1,5 +1,8 @@
 /* global setTimeout */
-import {selectAlternatives} from './';
+import {
+    endGame,
+    selectAlternatives,
+} from './';
 import * as events from '../events';
 import store from '../store';
 import {Status} from '../types';
@@ -33,15 +36,7 @@ export function makeGuess(countryName, questionIndex) {
         });
 
         if (questionIndex >= state.noOfQuestions - 1) {
-            store.dispatch({
-                type: events.QUESTION_INDEX_RESET,
-                payload: 0,
-            });
-
-            store.dispatch({
-                type: events.VIEW_CHANGED,
-                payload: 'Start',
-            });
+            endGame();
         } else {
             store.dispatch({
                 type: events.QUESTION_INDEX_INCREMENTED,
