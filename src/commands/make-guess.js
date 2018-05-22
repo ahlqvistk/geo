@@ -5,6 +5,15 @@ import store from '../store';
 import {Status} from '../types';
 
 export function makeGuess(countryName, questionIndex) {
+    const state = store.getState();
+
+    if (countryName === state.questions[state.questionIndex].name) {
+        store.dispatch({
+            type: events.POINT_ADDED,
+            payload: state.points + 1,
+        });
+    }
+
     store.dispatch({
         type: events.MADE_A_GUESS,
         payload: Status.Guessed(countryName),
@@ -23,7 +32,7 @@ export function makeGuess(countryName, questionIndex) {
             payload: Status.Guessing,
         });
 
-        if (questionIndex >= store.getState().noOfQuestions - 1) {
+        if (questionIndex >= state.noOfQuestions - 1) {
             store.dispatch({
                 type: events.QUESTION_INDEX_RESET,
                 payload: 0,

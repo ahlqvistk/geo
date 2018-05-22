@@ -12,6 +12,7 @@ export default combineReducers({
     noOfQuestions,
     questionIndex,
     status,
+    points,
 });
 
 /*
@@ -117,6 +118,23 @@ function status(state = Status.Guessing, action) {
     case SHOWED_RESULT:
         return action.payload;
     case STATUS_RESET:
+        return action.payload;
+    default:
+        return state;
+    }
+}
+
+/*
+ * points
+ */
+export const POINT_ADDED = 'POINT_ADDED';
+export const POINTS_RESET = 'POINTS_RESET';
+
+function points(state = 0, action) {
+    switch (action.type) {
+    case POINT_ADDED:
+        return action.payload;
+    case POINTS_RESET:
         return action.payload;
     default:
         return state;
