@@ -1,5 +1,8 @@
 import {combineReducers} from 'redux';
-import {Countries} from './types';
+import {
+    Countries,
+    Status,
+} from './types';
 
 export default combineReducers({
     view,
@@ -7,6 +10,7 @@ export default combineReducers({
     questions,
     alternatives,
     questionIndex,
+    status,
 });
 
 /*
@@ -85,6 +89,26 @@ function questionIndex(state = 0, action) {
     case QUESTION_INDEX_INCREMENTED:
         return action.payload;
     case QUESTION_INDEX_RESET:
+        return action.payload;
+    default:
+        return state;
+    }
+}
+
+/*
+ * status
+ */
+export const MADE_A_GUESS = 'MADE_A_GUESS';
+export const SHOWED_RESULT = 'SHOWED_RESULT';
+export const STATUS_RESET = 'STATUS_RESET';
+
+function status(state = Status.Guessing, action) {
+    switch (action.type) {
+    case MADE_A_GUESS:
+        return action.payload;
+    case SHOWED_RESULT:
+        return action.payload;
+    case STATUS_RESET:
         return action.payload;
     default:
         return state;

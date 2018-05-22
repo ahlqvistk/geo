@@ -8,3 +8,9 @@ export const Countries = Type({
     Fetched: [Any],
     Failed: [Error],
 });
+
+export const Status = Type({
+    Guessing: [],
+    Guessed: [String],
+    Result: [String],
+});
