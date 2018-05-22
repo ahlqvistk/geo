@@ -1,13 +1,12 @@
 import m from 'mithril';
 import {changeView} from '../commands';
 import store from '../store';
-import {Countries} from '../types';
 
 export default {
     view() {
         const state = store.getState();
 
-        return Countries.case({
+        return state.countries.case({
             Unfetched: () => {
                 return <h1>Unfetched</h1>;
             },
@@ -35,6 +34,6 @@ export default {
             Failed: () => {
                 return <h1>Failed</h1>;
             },
-        }, state.countries);
+        });
     },
 };
