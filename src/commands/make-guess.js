@@ -24,7 +24,7 @@ export function makeGuess(countryName, questionIndex) {
             type: events.SHOWED_RESULT,
             payload: Status.Result(countryName),
         });
-    }, 3000);
+    }, 1000);
 
     setTimeout(() => {
         store.dispatch({
@@ -50,5 +50,5 @@ export function makeGuess(countryName, questionIndex) {
         }
 
         selectAlternatives();
-    }, 6000);
+    }, 4000);
 }

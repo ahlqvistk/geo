@@ -38,10 +38,15 @@ export default {
                         {alternatives.map((alternative) => (
                             <button
                                 class={buttonClass(alternative.name)}
-                                onclick={() => makeGuess(
-                                    alternative.name,
-                                    state.questionIndex
-                                )}
+                                onclick={() => {
+                                    state.status.case({
+                                        Guessing: () => makeGuess(
+                                            alternative.name,
+                                            state.questionIndex
+                                        ),
+                                        _: () => false,
+                                    });
+                                }}
                             >{alternative.capital || alternative.name}</button>
                         ))}
                     </div>
