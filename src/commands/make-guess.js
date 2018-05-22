@@ -23,7 +23,7 @@ export function makeGuess(countryName, questionIndex) {
             payload: Status.Guessing,
         });
 
-        if (questionIndex >= store.getState().questions.length - 1) {
+        if (questionIndex >= store.getState().noOfQuestions - 1) {
             store.dispatch({
                 type: events.QUESTION_INDEX_RESET,
                 payload: 0,

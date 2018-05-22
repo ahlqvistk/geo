@@ -9,6 +9,7 @@ export default combineReducers({
     countries,
     questions,
     alternatives,
+    noOfQuestions,
     questionIndex,
     status,
 });
@@ -76,6 +77,13 @@ function alternatives(state = [], action) {
     default:
         return state;
     }
+}
+
+/*
+ * noOfQuestions
+ */
+function noOfQuestions(state = 5) {
+    return state;
 }
 
 /*
