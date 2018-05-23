@@ -1,5 +1,9 @@
 /* globals setTimeout */
 import * as events from '../events';
+import {
+    selectAlternatives,
+    selectQuestions,
+} from '../commands';
 import store from '../store';
 
 export function endGame() {
@@ -12,6 +16,9 @@ export function endGame() {
         type: events.VIEW_CHANGED,
         payload: 'Result',
     });
+
+    selectQuestions();
+    selectAlternatives();
 
     setTimeout(() => {
         store.dispatch({
