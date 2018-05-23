@@ -9,3 +9,7 @@
 .wrongAnswer {
     background-color: red;
 }
+
+.flag {
+    max-width: 200px;
+}

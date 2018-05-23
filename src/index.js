@@ -6,6 +6,7 @@ import {
     selectQuestions,
 } from './commands';
 import Capitals from './components/capitals';
+import Flags from './components/flags';
 import Maps from './components/maps';
 import Result from './components/result';
 import Start from './components/start';
@@ -19,6 +20,7 @@ getCountries().then(() => {
 const views = {
     Start,
     Maps,
+    Flags,
     Capitals,
     Result,
 };
