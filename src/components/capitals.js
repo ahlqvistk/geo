@@ -1,5 +1,6 @@
 import m from 'mithril';
 import {makeGuess} from '../commands/make-guess';
+import alternativeButtonClass from '../helpers/alternative-button-class';
 import store from '../store';
 
 export default {
@@ -8,28 +9,6 @@ export default {
         const question = state.questions[state.questionIndex];
         const alternatives = state.alternatives;
 
-        function buttonClass(buttonName) {
-            return state.status.case({
-                Guessing: () => '',
-                Guessed: (guessName) => {
-                    if (buttonName === guessName) {
-                        return 'selectedAnswer';
-                    }
-                    return '';
-                },
-                Result: (guessName) => {
-                    if (buttonName === question.name) {
-                        return 'correctAnswer';
-                    } else if (buttonName === guessName) {
-                        return 'wrongAnswer';
-                    } else {
-                        return '';
-                    }
-                },
-                _: () => '',
-            });
-        }
-
         if (question && alternatives) {
             return (
                 <div>
@@ -37,7 +16,11 @@ export default {
                     <div>
                         {alternatives.map((alternative) => (
                             <button
-                                class={buttonClass(alternative.name)}
+                                class={alternativeButtonClass(
+                                    alternative.name,
+                                    question.name,
+                                    state.status
+                                )}
                                 onclick={() => {
                                     state.status.case({
                                         Guessing: () => makeGuess(
