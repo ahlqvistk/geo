@@ -1,6 +1,5 @@
 import m from 'mithril';
-import {makeGuess} from '../commands/make-guess';
-import alternativeButtonClass from '../helpers/alternative-button-class';
+import Alternative from './alternative';
 import store from '../store';
 
 export default {
@@ -15,22 +14,9 @@ export default {
                     <div>What is the capital of {question.name}?</div>
                     <div>
                         {alternatives.map((alternative) => (
-                            <button
-                                class={alternativeButtonClass(
-                                    alternative.name,
-                                    question.name,
-                                    state.status
-                                )}
-                                onclick={() => {
-                                    state.status.case({
-                                        Guessing: () => makeGuess(
-                                            alternative.name,
-                                            state.questionIndex
-                                        ),
-                                        _: () => false,
-                                    });
-                                }}
-                            >{alternative.capital || alternative.name}</button>
+                            <Alternative name={alternative.name}>
+                                {alternative.capital || alternative.name}
+                            </Alternative>
                         ))}
                     </div>
                 </div>

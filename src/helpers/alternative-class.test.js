@@ -1,8 +1,8 @@
-import alternativeButtonClass from './alternative-button-class';
+import alternativeClass from './alternative-class';
 import {Status} from '../types';
 
 test('Returns empty string when guessing', () => {
-    expect(alternativeButtonClass(
+    expect(alternativeClass(
         'Sweden',
         'Sweden',
         Status.Guessing
@@ -10,7 +10,7 @@ test('Returns empty string when guessing', () => {
 });
 
 test('Returns selectedAnswer when Guessed and button is the same', () => {
-    expect(alternativeButtonClass(
+    expect(alternativeClass(
         'Sweden',
         'Norway',
         Status.Guessed('Sweden')
@@ -18,7 +18,7 @@ test('Returns selectedAnswer when Guessed and button is the same', () => {
 });
 
 test('Returns empty string when Guessed and not the same button', () => {
-    expect(alternativeButtonClass(
+    expect(alternativeClass(
         'Sweden',
         'Norway',
         Status.Guessed('Denmark')
@@ -26,7 +26,7 @@ test('Returns empty string when Guessed and not the same button', () => {
 });
 
 test('Returns correctAnswer when Result and correct', () => {
-    expect(alternativeButtonClass(
+    expect(alternativeClass(
         'Sweden',
         'Sweden',
         Status.Result('Sweden')
@@ -34,7 +34,7 @@ test('Returns correctAnswer when Result and correct', () => {
 });
 
 test('Returns wrongAnswer when Result and wrong', () => {
-    expect(alternativeButtonClass(
+    expect(alternativeClass(
         'Sweden',
         'Norway',
         Status.Result('Sweden')
@@ -42,7 +42,7 @@ test('Returns wrongAnswer when Result and wrong', () => {
 });
 
 test('Returns empty string if Result and not the same button', () => {
-    expect(alternativeButtonClass(
+    expect(alternativeClass(
         'Sweden',
         'Norway',
         Status.Result('Denmark')

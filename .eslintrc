@@ -11,10 +11,14 @@
             "jsx": true
         }
     },
+    "plugins": [
+        "react"
+    ],
     "rules": {
         "new-cap": ["error", { "capIsNew": false }],
         "indent": ["error", 4],
         "no-unused-vars": ["error", { "varsIgnorePattern": "^m$" }],
+        "react/jsx-uses-vars": "error",
         "require-jsdoc": 0
     }
 }
