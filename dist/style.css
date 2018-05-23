@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 .selectedAnswer {
     background-color: lightblue;
 }
@@ -12,4 +16,11 @@
 
 .flag {
     max-width: 200px;
+}
+
+.map {
+    height: 80%;
+    min-height: 400px;
+    min-width: 200px;
+    width: 100%;
 }

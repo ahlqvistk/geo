@@ -1,4 +1,6 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const config = require('./config/config.json');
 
 module.exports = {
     entry: './src/index.js',
@@ -22,5 +24,11 @@ module.exports = {
         contentBase: './dist',
         historyApiFallback: true,
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            googleMapsApiKey: config.googleMapsApiKey,
+            template: './src/index.ejs',
+        }),
+    ],
 };
-
