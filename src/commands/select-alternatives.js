@@ -10,7 +10,8 @@ export function selectAlternatives() {
     const currentQuestion = questions[questionIndex];
     const filter = (country) => (
         country.name !== currentQuestion.name &&
-        country.subregion === currentQuestion.subregion
+        country.subregion ? (country.subregion === currentQuestion.subregion) :
+            true
     );
     const selectedAlternatives = randomFromArray(countries, 3, filter)
         .concat(currentQuestion);
