@@ -2,6 +2,7 @@
 import m from 'mithril';
 import Alternative from './alternative';
 import store from '../store';
+import styles from '../styles/google-maps.json';
 
 export default {
     currentCountry: '',
@@ -19,6 +20,7 @@ export default {
             this.map = new google.maps.Map(document.getElementById('map'), {
                 position,
                 zoom: 4,
+                styles,
             });
 
             this.marker = new google.maps.Marker({
