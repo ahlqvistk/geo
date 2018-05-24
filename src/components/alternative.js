@@ -14,7 +14,7 @@ export default {
                     vnode.attrs.name,
                     question.name,
                     state.status
-                )}
+                ) + ` ${vnode.attrs.extraclass}`}
                 onclick={() => {
                     state.status.case({
                         Guessing: () => makeGuess(

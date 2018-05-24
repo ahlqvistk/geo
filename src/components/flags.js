@@ -14,8 +14,20 @@ export default {
                     <div>Select the flag of {question.name}.</div>
                     <div>
                         {alternatives.map((alternative) => (
-                            <Alternative name={alternative.name}>
-                                <img class="flag" src={alternative.flag} />
+                            <Alternative
+                                extraclass="flag-button"
+                                name={alternative.name}
+                            >
+                                <object
+                                    class="flag-image"
+                                    data={`http://www.countryflags.io/${alternative.alpha2Code}/shiny/64.png`}
+                                    type="image/png"
+                                >
+                                    <img
+                                        class="flag-image-backup"
+                                        src={alternative.flag}
+                                    />
+                                </object>
                             </Alternative>
                         ))}
                     </div>

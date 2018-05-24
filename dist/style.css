@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
 }
@@ -14,8 +18,14 @@ html, body {
     background-color: red;
 }
 
-.flag {
-    max-width: 200px;
+.flag-button {
+    height: 72px;
+    width: 84px;
+}
+
+.flag-image-backup {
+    max-height: 64px;
+    width: 64px;
 }
 
 .map {
