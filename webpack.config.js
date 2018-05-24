@@ -1,3 +1,4 @@
+/* globals module __dirname */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const config = require('./config/config.json');
@@ -17,8 +18,8 @@ module.exports = {
                     {loader: 'babel-loader'},
                     {loader: 'eslint-loader'},
                 ],
-            }
-        ]
+            },
+        ],
     },
     devServer: {
         contentBase: './dist',
