@@ -25,9 +25,6 @@ export default {
                         <button
                             onclick={() => changeView('Capitals')}
                         >Capitals</button>
-                        <button
-                            onclick={() => changeView('FullGame')}
-                        >Full game</button>
                     </nav>
                 );
             },
