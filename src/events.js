@@ -13,6 +13,7 @@ export default combineReducers({
     questionIndex,
     status,
     points,
+    userPosition,
 });
 
 /*
@@ -135,6 +136,20 @@ function points(state = 0, action) {
     case POINT_ADDED:
         return action.payload;
     case POINTS_RESET:
+        return action.payload;
+    default:
+        return state;
+    }
+}
+
+/*
+ * userPosition
+ */
+export const USER_POSITION_SET = 'USER_POSITION_SET';
+
+function userPosition(state = [], action) {
+    switch (action.type) {
+    case USER_POSITION_SET:
         return action.payload;
     default:
         return state;

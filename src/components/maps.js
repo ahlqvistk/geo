@@ -9,6 +9,7 @@ export default {
     map: null,
     mapCreated: false,
     marker: null,
+    userPositionMarker: null,
     oncreate() {
         const state = store.getState();
         const question = state.questions[state.questionIndex];
@@ -28,8 +29,20 @@ export default {
                 map: this.map,
             });
 
-            this.map.panTo(center);
+            this.userPositionMarker = new google.maps.Marker({
+                clickable: false,
+                icon: new google.maps.MarkerImage(
+                    'https://maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+                    new google.maps.Size(22, 22),
+                    new google.maps.Point(0, 18),
+                    new google.maps.Point(11, 11)
+                ),
+                shadow: null,
+                zIndex: 999,
+                map: this.map,
+            });
 
+            this.map.panTo(center);
             this.currentCountry = question.name;
             this.mapCreated = true;
         }
@@ -51,6 +64,15 @@ export default {
 
             this.map.panTo(center);
             this.currentCountry = question.name;
+        }
+
+        if (state.userPosition && this.mapCreated) {
+            const userPosition = new google.maps.LatLng(
+                state.userPosition[0],
+                state.userPosition[1]
+            );
+
+            this.userPositionMarker.setPosition(userPosition);
         }
 
         if (question && alternatives) {

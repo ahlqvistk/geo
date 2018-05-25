@@ -2,6 +2,7 @@
 import m from 'mithril';
 import {
     getCountries,
+    getUserPosition,
     selectAlternatives,
     selectQuestions,
 } from './commands';
@@ -16,6 +17,8 @@ getCountries().then(() => {
     selectQuestions();
     selectAlternatives();
 });
+
+getUserPosition();
 
 const views = {
     Start,
