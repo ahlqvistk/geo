@@ -18,16 +18,10 @@ export default {
                                 extraclass="flag-button"
                                 name={alternative.name}
                             >
-                                <object
+                                <img
                                     class="flag-image"
-                                    data={`http://www.countryflags.io/${alternative.alpha2Code}/shiny/64.png`}
-                                    type="image/png"
-                                >
-                                    <img
-                                        class="flag-image-backup"
-                                        src={alternative.flag}
-                                    />
-                                </object>
+                                    src={`http://www.countryflags.io/${alternative.alpha2Code}/shiny/64.png`}
+                                />
                             </Alternative>
                         ))}
                     </div>

@@ -18,16 +18,6 @@ html, body {
     background-color: red;
 }
 
-.flag-button {
-    height: 72px;
-    width: 84px;
-}
-
-.flag-image-backup {
-    max-height: 64px;
-    width: 64px;
-}
-
 .map {
     height: 80%;
     min-height: 400px;
