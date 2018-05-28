@@ -14,6 +14,7 @@ export default combineReducers({
     status,
     points,
     userPosition,
+    offline,
 });
 
 /*
@@ -150,6 +151,20 @@ export const USER_POSITION_SET = 'USER_POSITION_SET';
 function userPosition(state = [], action) {
     switch (action.type) {
     case USER_POSITION_SET:
+        return action.payload;
+    default:
+        return state;
+    }
+}
+
+/*
+ * offline
+ */
+export const APP_IS_OFFLINE = 'APP_IS_OFFLINE';
+
+function offline(state = false, action) {
+    switch (action.type) {
+    case APP_IS_OFFLINE:
         return action.payload;
     default:
         return state;

@@ -8,12 +8,25 @@ export default {
 
         return state.countries.case({
             Unfetched: () => {
-                return <h1>Unfetched</h1>;
+                return;
             },
             Fetching: () => {
-                return <h1>Fetching</h1>;
+                return <h1>Fetching Data...</h1>;
             },
             Fetched: () => {
+                if (state.offline) {
+                    return (
+                        <nav>
+                            <button
+                                onclick={() => changeView('Capitals')}
+                            >Capitals</button>
+                            <div>
+                                Offline mode: only Capitals game available
+                            </div>
+                        </nav>
+                    );
+                }
+
                 return (
                     <nav>
                         <button
@@ -29,7 +42,7 @@ export default {
                 );
             },
             Failed: () => {
-                return <h1>Failed</h1>;
+                return <h1>Fetching Data Failed</h1>;
             },
         });
     },
