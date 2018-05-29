@@ -1,21 +1,21 @@
 export default function(buttonName, questionName, status) {
     return status.case({
-        Guessing: () => '',
+        Guessing: () => 'alternative-button',
         Guessed: (guessName) => {
             if (buttonName === guessName) {
-                return 'selectedAnswer';
+                return 'alternative-button selected-answer';
             }
-            return '';
+            return 'alternative-button';
         },
         Result: (guessName) => {
             if (buttonName === questionName) {
-                return 'correctAnswer';
+                return 'alternative-button correct-answer';
             } else if (buttonName === guessName) {
-                return 'wrongAnswer';
+                return 'alternative-button wrong-answer';
             } else {
-                return '';
+                return 'alternative-button';
             }
         },
-        _: () => '',
+        _: () => 'alternative-button',
     });
 }

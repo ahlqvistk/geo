@@ -6,7 +6,7 @@ test('Returns empty string when guessing', () => {
         'Sweden',
         'Sweden',
         Status.Guessing
-    )).toEqual('');
+    )).toEqual('alternative-button');
 });
 
 test('Returns selectedAnswer when Guessed and button is the same', () => {
@@ -14,7 +14,7 @@ test('Returns selectedAnswer when Guessed and button is the same', () => {
         'Sweden',
         'Norway',
         Status.Guessed('Sweden')
-    )).toEqual('selectedAnswer');
+    )).toEqual('alternative-button selected-answer');
 });
 
 test('Returns empty string when Guessed and not the same button', () => {
@@ -22,7 +22,7 @@ test('Returns empty string when Guessed and not the same button', () => {
         'Sweden',
         'Norway',
         Status.Guessed('Denmark')
-    )).toEqual('');
+    )).toEqual('alternative-button');
 });
 
 test('Returns correctAnswer when Result and correct', () => {
@@ -30,7 +30,7 @@ test('Returns correctAnswer when Result and correct', () => {
         'Sweden',
         'Sweden',
         Status.Result('Sweden')
-    )).toEqual('correctAnswer');
+    )).toEqual('alternative-button correct-answer');
 });
 
 test('Returns wrongAnswer when Result and wrong', () => {
@@ -38,7 +38,7 @@ test('Returns wrongAnswer when Result and wrong', () => {
         'Sweden',
         'Norway',
         Status.Result('Sweden')
-    )).toEqual('wrongAnswer');
+    )).toEqual('alternative-button wrong-answer');
 });
 
 test('Returns empty string if Result and not the same button', () => {
@@ -46,5 +46,5 @@ test('Returns empty string if Result and not the same button', () => {
         'Sweden',
         'Norway',
         Status.Result('Denmark')
-    )).toEqual('');
+    )).toEqual('alternative-button');
 });

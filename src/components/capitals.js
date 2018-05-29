@@ -12,7 +12,7 @@ export default {
             return (
                 <div>
                     <div>What is the capital of {question.name}?</div>
-                    <div>
+                    <div class="alternatives">
                         {alternatives.map((alternative) => (
                             <Alternative name={alternative.name}>
                                 {alternative.capital || alternative.name}

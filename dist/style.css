@@ -1,20 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 * {
     box-sizing: border-box;
 }
 
-html, body {
+html {
     height: 100%;
+    font-size: 16px;
+    margin: auto;
+    max-width: 600px;
 }
 
-.selectedAnswer {
+body {
+    background-color: #FFF;
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    background-color: #FFF;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.20);
+    font-family: inherit;
+    font-size: 1.25rem;
+    height: 150px;
+    margin: 4px;
+}
+
+.start button {
+    width: 100%;
+}
+
+.alternatives {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 420px;
+}
+
+.alternative-button {
+    width: 200px;
+}
+
+.selected-answer {
     background-color: lightblue;
 }
 
-.correctAnswer {
+.correct-answer {
     background-color: lightgreen;
 }
 
-.wrongAnswer {
+.wrong-answer {
     background-color: red;
 }
 

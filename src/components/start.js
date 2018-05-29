@@ -16,19 +16,19 @@ export default {
             Fetched: () => {
                 if (state.offline) {
                     return (
-                        <nav>
+                        <div class="start">
                             <button
                                 onclick={() => changeView('Capitals')}
                             >Capitals</button>
                             <div>
                                 Offline mode: only Capitals game available
                             </div>
-                        </nav>
+                        </div>
                     );
                 }
 
                 return (
-                    <nav>
+                    <div class="start">
                         <button
                             onclick={() => changeView('Maps')}
                         >Maps</button>
@@ -38,7 +38,7 @@ export default {
                         <button
                             onclick={() => changeView('Capitals')}
                         >Capitals</button>
-                    </nav>
+                    </div>
                 );
             },
             Failed: () => {

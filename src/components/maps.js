@@ -80,7 +80,7 @@ export default {
                 <div>
                     <div>What is the country on the map?</div>
                     <div class="map" id="map"></div>
-                    <div>
+                    <div class="alterinatives">
                         {alternatives.map((alternative) => (
                             <Alternative name={alternative.name}>
                                 {alternative.name}
