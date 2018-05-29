@@ -16,19 +16,20 @@ export default {
             Fetched: () => {
                 if (state.offline) {
                     return (
-                        <div class="start">
+                        <div class="start container">
+                            <div class="title">Geo Quiz</div>
+                            <div class="title-fade"></div>
                             <button
                                 onclick={() => changeView('Capitals')}
                             >Capitals</button>
-                            <div>
-                                Offline mode: only Capitals game available
-                            </div>
                         </div>
                     );
                 }
 
                 return (
-                    <div class="start">
+                    <div class="start container">
+                        <div class="title">Geo Quiz</div>
+                        <div class="title-fade"></div>
                         <button
                             onclick={() => changeView('Maps')}
                         >Maps</button>

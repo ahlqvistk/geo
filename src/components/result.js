@@ -8,7 +8,9 @@ export default {
         const points = state.points;
 
         return (
-            <div>You got {points}/{noOfQuestions} points</div>
+            <div class="result">
+                You got {points}/{noOfQuestions} points
+            </div>
         );
     },
 };

@@ -10,8 +10,10 @@ export default {
 
         if (question && alternatives) {
             return (
-                <div>
-                    <div>Select the flag of {question.name}.</div>
+                <div class="container">
+                    <div class="question">
+                        Select the flag of {question.name}
+                    </div>
                     <div class="alternatives">
                         {alternatives.map((alternative) => (
                             <Alternative name={alternative.name}>

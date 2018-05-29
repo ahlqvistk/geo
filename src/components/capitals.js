@@ -10,8 +10,10 @@ export default {
 
         if (question && alternatives) {
             return (
-                <div>
-                    <div>What is the capital of {question.name}?</div>
+                <div class="container">
+                    <div class="question">
+                        What is the capital of {question.name}?
+                    </div>
                     <div class="alternatives">
                         {alternatives.map((alternative) => (
                             <Alternative name={alternative.name}>

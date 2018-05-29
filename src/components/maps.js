@@ -20,7 +20,7 @@ export default {
 
             this.map = new google.maps.Map(document.getElementById('map'), {
                 position,
-                zoom: 4,
+                zoom: 3,
                 styles,
             });
 
@@ -77,10 +77,11 @@ export default {
 
         if (question && alternatives) {
             return (
-                <div>
-                    <div>What is the country on the map?</div>
-                    <div class="map" id="map"></div>
-                    <div class="alterinatives">
+                <div class="container">
+                    <div class="question">
+                        <div class="map" id="map"></div>
+                    </div>
+                    <div class="alternatives">
                         {alternatives.map((alternative) => (
                             <Alternative name={alternative.name}>
                                 {alternative.name}
