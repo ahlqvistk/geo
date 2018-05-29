@@ -1,5 +1,6 @@
 import * as events from '../events';
 import randomFromArray from '../helpers/random-from-array';
+import shuffleArray from '../helpers/shuffle-array';
 import store from '../store';
 import excluded from '../../config/excluded.json';
 
@@ -14,8 +15,9 @@ export function selectAlternatives() {
         country.subregion === currentQuestion.subregion &&
         excluded.indexOf(country.alpha2Code) === -1
     );
-    const selectedAlternatives = randomFromArray(countries, 3, filter)
-        .concat(currentQuestion);
+    const selectedAlternatives = shuffleArray(
+        randomFromArray(countries, 3, filter).concat(currentQuestion)
+    );
 
     store.dispatch({
         type: events.ALTERNATIVES_SELECTED,
