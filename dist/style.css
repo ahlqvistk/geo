@@ -7,15 +7,22 @@
 
 html {
     height: 100%;
-    font-size: 16px;
 }
 
 body {
     background-color: #fff;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+.container {
+    height: 100%;
+    margin: auto;
+    max-width: 420px;
+    padding: 4px;
 }
 
 button {
@@ -40,27 +47,19 @@ button {
     height: calc(25% - 16px);
     justify-content: center;
     margin: 0 auto;
-    max-width: 420px;
 }
 
 .title-fade {
     background: linear-gradient(#ebe0c7, #fff);
     height: 16px;
     margin: 0 auto;
-    max-width: 420px;
 }
 
 .start button {
     display: block;
     height: calc(25% - 10px);
     margin: 8px auto;
-    max-width: 420px;
     width: 100%;
-}
-
-.container {
-    height: 100%;
-    padding: 4px;
 }
 
 .question {
@@ -72,7 +71,6 @@ button {
     height: 50%;
     justify-content: center;
     margin: auto;
-    max-width: 420px;
     text-align: center;
 }
 
@@ -82,7 +80,6 @@ button {
     height: 50%;
     justify-content: space-between;
     margin: auto;
-    max-width: 420px;
 }
 
 .alternative-button {
